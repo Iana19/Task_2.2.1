@@ -1,11 +1,7 @@
 package hiber.dao;
 
-import hiber.config.AppConfig;
 import hiber.model.User;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,9 +9,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-public class UserDaoImp implements UserDao {
-
-   private AppConfig appConfig = new AppConfig();
+public class CarDaoImp implements UserDao {
 
    @Autowired
    private SessionFactory sessionFactory;
@@ -26,15 +20,18 @@ public class UserDaoImp implements UserDao {
       sessionFactory.getCurrentSession().save(user);
    }
 
+
+
    @Override
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
-      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
       return query.getResultList();
    }
 
    @Override
-   public User getUserByCar(){
-      return getUserByCar();
+   public User getUserByCar() {
+      return null;
    }
+
 }

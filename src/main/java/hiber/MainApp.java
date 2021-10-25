@@ -29,6 +29,8 @@ public class MainApp {
          System.out.println();
       }
 
+      userService.listUsers();
+
       context.close();
    }
 }
