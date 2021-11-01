@@ -34,8 +34,7 @@ public class UserServiceImp implements UserService {
 
     @Transactional
     @Override
-   public User findHost(String model, int series) {
-      return userDao.findHost(model, series);
+    public User findHost(String car_name, String car_series) {
+       return userDao.findHost(car_name, car_series);
    }
-
 }

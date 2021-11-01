@@ -1,12 +1,8 @@
 package hiber.dao;
 
-import hiber.config.AppConfig;
 import hiber.model.User;
 import hiber.model.Car;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -41,11 +37,11 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    public User findHost(String model, int series) {
-        TypedQuery<Car> findCarQuery = sessionFactory.getCurrentSession().
-                createQuery("from Car where name = :model and series = :series")
-                .setParameter("model", model)
-                .setParameter("series", series);
+    public User findHost(String car_name, String car_series) {
+        TypedQuery<Car> findCarQuery = sessionFactory.getCurrentSession()
+                .createQuery("from Car where name = :car_name and series = :car_series")
+                .setParameter("car_name", car_name)
+                .setParameter("car_series", car_series);
         List<Car> findCarList = findCarQuery.getResultList();
         if (!findCarList.isEmpty()) {
             Car findCar = findCarList.get(0);

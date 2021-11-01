@@ -47,8 +47,7 @@ public class AppConfig {
       props.put("hibernate.dialect", env.getProperty("hibernate.dialect")); //1+
 
       factoryBean.setHibernateProperties(props);
-      factoryBean.setAnnotatedClasses(User.class);
-      factoryBean.setAnnotatedClasses(Car.class);
+      factoryBean.setAnnotatedClasses(User.class, Car.class);
       return factoryBean;
    }
 

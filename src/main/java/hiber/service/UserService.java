@@ -10,5 +10,7 @@ public interface UserService {
     List<User> listUsers();
 
     void deleteAllUsers();
-    User findHost(String model, int series);
+
+    User findHost(String car_name, String car_series);
+
 }
