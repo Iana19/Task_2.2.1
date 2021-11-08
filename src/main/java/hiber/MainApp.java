@@ -39,7 +39,8 @@ public class MainApp {
          System.out.println("Car = " + user.getCar());
          System.out.println();
       }
-
+      System.out.println("Найти \"Tesla 3\"");
+      System.out.println(userService.findHost("Tesla", "3"));
       context.close();
    }
 }
